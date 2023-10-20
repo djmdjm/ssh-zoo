@@ -1,0 +1,25 @@
+From f658d6a4d463e59e45d5d128df12a79a723249d2 Mon Sep 17 00:00:00 2001
+From: Damien Miller <djm@google.com>
+Date: Fri, 20 Oct 2023 14:40:41 +1100
+Subject: [PATCH 1/2] fix duplicate symbol umac_ctx
+
+---
+ umac.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/umac.c b/umac.c
+index 0c62145..2162019 100644
+--- a/umac.c
++++ b/umac.c
+@@ -1190,7 +1190,7 @@ struct umac_ctx {
+     uhash_ctx hash;          /* Hash function for message compression    */
+     pdf_ctx pdf;             /* PDF for hashed output                    */
+     void *free_ptr;          /* Address to free this struct via          */
+-} umac_ctx;
++};
+ 
+ /* ---------------------------------------------------------------------- */
+ 
+-- 
+2.42.0.758.gaed0368e0e-goog
+

@@ -1,0 +1,25 @@
+From 9db895cb88751c35b7b590693e68e64974167721 Mon Sep 17 00:00:00 2001
+From: Damien Miller <djm@google.com>
+Date: Fri, 20 Oct 2023 14:51:48 +1100
+Subject: [PATCH] avoid arc4random_stir
+
+---
+ openbsd-compat/openbsd-compat.h | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/openbsd-compat/openbsd-compat.h b/openbsd-compat/openbsd-compat.h
+index 807acf6..4e198d3 100644
+--- a/openbsd-compat/openbsd-compat.h
++++ b/openbsd-compat/openbsd-compat.h
+@@ -162,6 +162,8 @@ unsigned int arc4random(void);
+ void arc4random_stir(void);
+ #endif /* !HAVE_ARC4RANDOM */
+ 
++#define arc4random_stir()
++
+ #ifndef HAVE_ARC4RANDOM_BUF
+ void arc4random_buf(void *, size_t);
+ #endif
+-- 
+2.42.0.758.gaed0368e0e-goog
+
