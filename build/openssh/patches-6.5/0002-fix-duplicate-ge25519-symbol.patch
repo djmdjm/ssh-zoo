@@ -1,0 +1,25 @@
+From b5707bc43d4673384fd8fd801a9729f92803bd3d Mon Sep 17 00:00:00 2001
+From: Damien Miller <djm@google.com>
+Date: Fri, 20 Oct 2023 14:47:29 +1100
+Subject: [PATCH 2/2] fix duplicate ge25519 symbol
+
+---
+ ge25519.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/ge25519.h b/ge25519.h
+index 64f63c6..329bd04 100644
+--- a/ge25519.h
++++ b/ge25519.h
+@@ -28,7 +28,7 @@ typedef struct
+   fe25519 t;
+ } ge25519;
+ 
+-const ge25519 ge25519_base;
++extern const ge25519 ge25519_base;
+ 
+ int ge25519_unpackneg_vartime(ge25519 *r, const unsigned char p[32]);
+ 
+-- 
+2.42.0.758.gaed0368e0e-goog
+
